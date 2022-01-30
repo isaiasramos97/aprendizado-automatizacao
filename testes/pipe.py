@@ -5,7 +5,13 @@ print(mo1.group())
 mo2 = heroRegex.search('Tina Fey and Batman.')
 print(mo2.group())"""
 
-batRegex = re.compile(r'Bat(man|mobile|copter|bat)')    # prefixo especificado
+"""batRegex = re.compile(r'Bat(man|mobile|copter|bat)')    # prefixo especificado
 mo = batRegex.search('Batmobile lost a wheel')
 print(mo.group())
-print(mo.group(1))
+print(mo.group(1))"""
+
+batRegex = re.compile(r'Bat(wo)?man')
+mo1 = batRegex.search('The Adventures of Batman')
+print(mo1.group())
+mo2 = batRegex.search('The Adventures of Batwoman')
+print(mo2.group())
