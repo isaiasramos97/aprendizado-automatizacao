@@ -1,9 +1,14 @@
 import re
 
-phone_num_regex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')  # r: string pura (raw)
-mo = phone_num_regex.search('My number is 415-555-4242.')
-print('Phone number found: ' + mo.group())
-
-phone_num_regex = re.compile(r'\d\d \d\d\d\d-\d\d\d\d')  # brazilian mode
-mo = phone_num_regex.search('My number is 21 4545-4242.')
-print('Phone number found: ' + mo.group())
+phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+mo = phoneNumRegex.search('My number is 415-555-4242.')
+print(mo.group(1))
+print(mo.group())
+print(mo.groups())
+areaCode, mainNumber = mo.groups()
+print(areaCode)
+print(mainNumber)
+phoneNumRegex = re.compile(r'(\(\d\d\d\))(\d\d\d-\d\d\d\d)')
+mo = phoneNumRegex.search('My phone number is (415)555-4242')
+print(mo.group(1))
+print(mo.group(2))

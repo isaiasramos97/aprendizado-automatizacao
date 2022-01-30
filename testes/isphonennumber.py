@@ -1,7 +1,7 @@
 def is_phone_number(text):
     """
     -> Esta função reconhece números telefofnicos no padrão estadunidense
-    :param text: conjunto de 121 caracteres
+    :param text: conjunto de 12 caracteres
     :return: true or false
     """
     if len(text) != 12:
