@@ -38,3 +38,19 @@ Ao inserir um acento circunflexo logo depois do colchete de abertura da classe d
 negativa de caracteres'''
 consonantRegex = re.compile(r'[^aeiouAEIOU]')
 print(consonantRegex.findall('Robocop eats baby food. BABY FOOD.'))     # mostra não-vogais. espaços inclusos
+# para nao retornar espaços e pontos, podemos adicionar os mesmos junto as vogais
+consonantRegex = re.compile(r'[^aeiouAEIOU .]')
+print(consonantRegex.findall('Robocop eats baby food. BABY FOOD.'))
+# circunflexo (^) e cifrão ($)
+'''o circunflexo tbm pode ser usado no inicio para indicar que uma corresp deve ocorrer no inicio de um texto
+pesquisado. da msm maneira, podemos colocar um cifrão no final para indicar que a string deve terminar com esse padrão
+de regex.
+podemos tbm usá-los juntos para indicar que a string toda deve corresponder à regex'''
+
+beginsWithHello = re.compile(r'^Hello')
+print(beginsWithHello.search('Hello World'))
+print(beginsWithHello.search('He said hello.') is None)
+# a string r'\d$' de expressão regular corresponde a strings que terminem com um caractere numerico de 0 a 9
+endsWithNumber = re.compile(r'\d$')
+print(endsWithNumber.search('Your number is 42'))
+print(endsWithNumber.search('Your number is forty two') is None)
