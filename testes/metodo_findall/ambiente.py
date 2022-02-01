@@ -20,3 +20,8 @@ print(phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000'))
 phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # tem grupos
 print(phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000'))
 
+# exemplos de classes de caracteres:
+
+xmasRegex = re.compile(r'\d+\s\w+')  # \d+: um ou mais digitos; \s: espaço em branco; \w+: um ou mais caracteres
+xmasRegex.findall('12 drummers, 11 pipers, 10 lords, 9 ladies, 8 maids, 7 swans, 6 geese, 5 rings, 4 birds, 3 hens,'
+                  '2 doves, 1 partridge')   # findall retorna todas as strings que correspondam ao padrao em uma lista
