@@ -54,3 +54,19 @@ print(beginsWithHello.search('He said hello.') is None)
 endsWithNumber = re.compile(r'\d$')
 print(endsWithNumber.search('Your number is 42'))
 print(endsWithNumber.search('Your number is forty two') is None)
+# a string r'^\d+$' corresponde a strings que comecem e terminem com um ou mais caracteres numéricos
+wholeStringIsNum = re.compile(r'^\d+$')
+print(wholeStringIsNum.search('1234567890'))
+print(wholeStringIsNum.search('12345xyz67890') is None)
+print(wholeStringIsNum.search('12 34567890') is None)
+
+# Caractere-curinga . (ponto)
+'''Corresponde a qualquer caractere, exceto quebras de linha'''
+atRegex = re.compile(r'.at')  # o ponto corresponde a um caractere. na string abaixo, flat retorna como lat por exemplo
+print(atRegex.findall('The cat in the hat sat on the flat mat.'))
+
+# correspondendo a tudo usando o ponto-asterisco
+nameRegex = re.compile(r'First Name:(.*) Last Name:(.*)')
+mo = nameRegex.search('First Name:Isaias Last Name:Ramos')
+print(mo.group(1))
+print(mo.group(2))
