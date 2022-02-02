@@ -70,3 +70,26 @@ nameRegex = re.compile(r'First Name:(.*) Last Name:(.*)')
 mo = nameRegex.search('First Name:Isaias Last Name:Ramos')
 print(mo.group(1))
 print(mo.group(2))
+
+# correspondencias sem diferenciar letras maiusculas de minusculas
+robocop = re.compile(r'robocop', re.IGNORECASE)  # re.IGNORECASE pode ser usado como re.I
+print(robocop.search('RoboCop is part man, part machine, all cop.').group())
+print(robocop.search('ROBOCOP protects the innocent.').group())
+print(robocop.search('Al, why does your programming book talk about robocop so much?').group())
+
+# substituindo strings com metodo sub()
+namesRegex = re.compile(r'Agent \w+')
+print(namesRegex.sub('CENSORED', 'Agent Alice gave the secret documents to Agent Bob.'))
+
+# administrando regexes complexas
+# exemplo: podemos solicitar que uma função re.compile() ignore espaços em branco e comentarios na string de regex
+# esse modo pode ser habilitado com a variavel re.VERBOSE como segundo argumento
+phoneRegex = re.compile(r'''(
+(\d{3}|\(\d{3}\))? # codigo de área
+(\s|-|\.)? # separador
+\d{3} # primeiros 3 dígitos
+(\s|-|\.) # separador
+\d{4} # últimos 4 dígitos
+(\s*(ext|x|ext.)\s*\d{2,5})? # extensão
+)''', re.VERBOSE)
+# observe que tudo o que está após o # na linha é ignorado
