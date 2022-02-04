@@ -92,4 +92,5 @@ phoneRegex = re.compile(r'''(
 \d{4} # últimos 4 dígitos
 (\s*(ext|x|ext.)\s*\d{2,5})? # extensão
 )''', re.VERBOSE)
+print(phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000'))
 # observe que tudo o que está após o # na linha é ignorado
